@@ -1,0 +1,4 @@
+github.baseUrl = https://api.github.com
+github.personalAccessToken =
+
+openapi.generated = true

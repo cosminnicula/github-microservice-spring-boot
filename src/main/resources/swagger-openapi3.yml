@@ -1,0 +1,60 @@
+openapi: 3.0.1
+info:
+  title: GitHub Microservice
+  description: This is a sample Java + Spring Boot microservice that interacts with the GitHub API in order to retrieve Repositories + Branches information.
+  contact:
+    email: cosmin.nicula@gmail.com
+  license:
+    name: MIT
+  version: '1.0.0'
+servers:
+  - url: http://localhost:8080/api/v1
+paths:
+  /stats/repository-branches:
+    get:
+      operationId: getRepositories
+      parameters:
+        - name: username
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: Accept
+          in: header
+          schema:
+            type: string
+            enum:
+              - application/json
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RepositoryBranchesEntity'
+        '404':
+          description: Username not found
+        '406':
+          description: Media type not supported
+components:
+  schemas:
+    BranchEntity:
+      type: object
+      properties:
+        name:
+          type: string
+        commitSha:
+          type: string
+    RepositoryBranchesEntity:
+      type: object
+      properties:
+        repositoryName:
+          type: string
+        repositoryOwner:
+          type: string
+        branches:
+          type: array
+          items:
+            $ref: '#/components/schemas/BranchEntity'

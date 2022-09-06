@@ -1,0 +1,16 @@
+package dev.intermediatebox.stats.entity;
+
+import lombok.Builder;
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+@Builder
+public class RepositoryBranchesEntity {
+  private String repositoryName;
+
+  private String repositoryOwner;
+
+  private List<BranchEntity> branches;
+}

@@ -1,0 +1,12 @@
+package dev.intermediatebox.stats.entity;
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class BranchEntity {
+  private String name;
+
+  private String commitSha;
+}
