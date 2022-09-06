@@ -4,9 +4,9 @@ This is a sample Java + Spring Boot microservice that interacts with the GitHub 
 
 ## Configuration
 
-```github.baseUrl``` -> the GitHub API base url (default https://api.github.com)
-```github.personalAccessToken``` -> your GitHub Personal Access Token; if empty, the GitHub's API rate limit will be lower
-```openapi.generated``` -> if true, then the RepositoryBranchesDelegatedApi will make use of the generated OpenApi entities; if false, rename BranchEntity.java.bak & RepositoryBranchesEntity.java.bak, and comment out the openapi-generator-maven-plugin section in pom.xml (default true)  
+- ```github.baseUrl``` -> the GitHub API base url (default https://api.github.com)
+- ```github.personalAccessToken``` -> your GitHub Personal Access Token; if empty, the GitHub's API rate limit will be lower
+- ```openapi.generated``` -> if true, then the RepositoryBranchesDelegatedApi will make use of the generated OpenApi entities; if false, rename BranchEntity.java.bak & RepositoryBranchesEntity.java.bak, and comment out the openapi-generator-maven-plugin section in pom.xml (default true)  
 
 ## Build Java sources
 
