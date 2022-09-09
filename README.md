@@ -27,7 +27,7 @@ see ```aws/aws-ecs-fargate-cloudformation.yml```
 
 Prerequisites:
 - AWS account
-- ECR repository: ```aws ecr create-repository --repository-name github-microservice```)
+- ECR repository: ```aws ecr create-repository --repository-name github-microservice```
 - Docker image pushed to the ECR repository:
   - ```aws ecr get-login-password --region eu-west-1```
   - ```aws ecr --region eu-west-1 | docker login -u AWS -p <AuthToken> <ECRRepositoryUrl>/github-microservice```
