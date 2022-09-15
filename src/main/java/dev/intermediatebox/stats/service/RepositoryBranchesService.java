@@ -20,10 +20,10 @@ import java.util.stream.Collectors;
 @Slf4j
 public class RepositoryBranchesService {
   @Autowired
-  RepositoryService repositoryService;
+  private RepositoryService repositoryService;
 
   @Autowired
-  BranchService branchService;
+  private BranchService branchService;
 
   public List<RepositoryBranchesEntity> getAllRepositoriesAndBranches(String username) {
     return repositoryService.getAllReposByUsername(username)

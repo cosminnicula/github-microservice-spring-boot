@@ -13,7 +13,8 @@ import java.util.List;
 @ConditionalOnProperty(prefix = "openapi", name = "generated", havingValue = "true")
 public class RepositoryBranchesDelegatedApi implements StatsApiDelegate {
   @Autowired
-  RepositoryBranchesService repositoryBranchesService;
+  private RepositoryBranchesService repositoryBranchesService;
+  
   @Override
   public ResponseEntity<List<RepositoryBranchesEntity>> getRepositories(String username,
                                                                         String accept) {

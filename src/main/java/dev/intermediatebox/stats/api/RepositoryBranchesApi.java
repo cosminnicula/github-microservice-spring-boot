@@ -19,7 +19,7 @@ import java.util.List;
 @ConditionalOnProperty(prefix = "openapi", name = "generated", havingValue = "false")
 public class RepositoryBranchesApi {
   @Autowired
-  RepositoryBranchesService repositoryBranchesService;
+  private RepositoryBranchesService repositoryBranchesService;
 
   @GetMapping(value = "", headers = {"Accept=application/json"})
   public ResponseEntity<List<RepositoryBranchesEntity>> getRepositories(@RequestParam String username) {
