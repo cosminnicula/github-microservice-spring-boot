@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -49,11 +50,11 @@ class RepositoryBranchesServiceUnitTests {
         new BranchEntity("main", new BranchCommitEntity("b2656fd21bbdfa67872d6b521d7dba083e0474a3"))
     );
 
-    when(repositoryService.getAllReposByUsername(username)).thenReturn(repositories);
+    when(repositoryService.getAllReposByUsername(username)).thenReturn(Mono.just(repositories));
     when(branchService.getAllBranchesByRepositoryName(username, repositories.get(0).getName()))
-        .thenReturn(repository1Branches);
+        .thenReturn(Mono.just(repository1Branches));
     when(branchService.getAllBranchesByRepositoryName(username, repositories.get(1).getName()))
-        .thenReturn(repository2Branches);
+        .thenReturn(Mono.just(repository2Branches));
 
     assertEquals(repositories.size(), repositoryBranchesService.getAllRepositoriesAndBranches(username).size());
     Assertions.assertEquals(repository1Branches.size(),
@@ -68,7 +69,7 @@ class RepositoryBranchesServiceUnitTests {
 
     List<RepositoryEntity> repositories = List.of();
 
-    when(repositoryService.getAllReposByUsername(username)).thenReturn(repositories);
+    when(repositoryService.getAllReposByUsername(username)).thenReturn(Mono.just(repositories));
 
     assertEquals(repositories.size(), repositoryBranchesService.getAllRepositoriesAndBranches(username).size());
   }
@@ -83,9 +84,9 @@ class RepositoryBranchesServiceUnitTests {
 
     List<BranchEntity> repository1Branches = List.of();
 
-    when(repositoryService.getAllReposByUsername(username)).thenReturn(repositories);
+    when(repositoryService.getAllReposByUsername(username)).thenReturn(Mono.just(repositories));
     when(branchService.getAllBranchesByRepositoryName(username, repositories.get(0).getName()))
-        .thenReturn(repository1Branches);
+        .thenReturn(Mono.just(repository1Branches));
 
     Assertions.assertEquals(repository1Branches.size(),
         repositoryBranchesService.getAllRepositoriesAndBranches(username).get(0).getBranches().size());

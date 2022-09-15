@@ -20,7 +20,7 @@ public class RepositoryService {
   @Autowired
   private WebClient webClient;
 
-  public List<RepositoryEntity> getAllReposByUsername(String username) {
+  public Mono<List<RepositoryEntity>> getAllReposByUsername(String username) {
     log.info("Retrieving all repositories for {} user...", username);
     var reposByUsername = webClient.get()
         .uri("/users/{username}/repos", username)
@@ -38,8 +38,7 @@ public class RepositoryService {
         .onErrorMap(Predicate.not(GitHubUsernameNotFoundException.class::isInstance), e -> {
           log.warn("An exception occurred", e);
           return new GenericException(e.getMessage());
-        })
-        .block();
+        });
     log.info("Successfully retrieved all repositories for {} user.", username);
     return reposByUsername;
   }

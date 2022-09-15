@@ -15,11 +15,10 @@ Run ```mvn clean install``` to build the project, and generate the OpenApi sourc
 ## Build Docker image
 
 ```docker build . -t github-microservice:latest```
-```docker run -d --name github-microservice -e github.personalAccessToken=<PersonalAccessToken> -p 8080:8080 --rm github-microservice:latest```
 
 ## Run Docker image
 
-```docker run --name github-microservice -p 8080:8080 --rm spring-boot-microservice:latest```
+```docker run -d --name github-microservice -e github.personalAccessToken=<PersonalAccessToken> -p 8080:8080 --rm github-microservice:latest```
 
 ## AWS ECS Fargate CloudFormation template
 
