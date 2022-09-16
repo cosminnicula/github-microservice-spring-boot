@@ -1,6 +1,6 @@
 # GitHub Microservice
 
-This is a sample Java + Spring Boot microservice that interacts with the GitHub API in order to retrieve Repositories + Branches information.
+This is a sample Java + Spring Boot microservice that interacts with the GitHub API and makes use of the Spring WebFlux reactive-stack web framework in order to retrieve and process Repositories + Branches information.
 
 ## Configuration
 
