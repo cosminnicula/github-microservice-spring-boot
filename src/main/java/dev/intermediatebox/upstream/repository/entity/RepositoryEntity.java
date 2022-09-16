@@ -11,4 +11,6 @@ public class RepositoryEntity {
   private String name;
 
   private RepositoryOwnerEntity owner;
+
+  private boolean fork;
 }

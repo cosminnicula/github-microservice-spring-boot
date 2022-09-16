@@ -30,6 +30,7 @@ public class RepositoryBranchesService {
         .flatMapMany(Flux::fromIterable)
         .parallel()
         .runOn(Schedulers.newBoundedElastic(10, 10, "RepositoryBranches"))
+        .filter(repository -> !repository.isFork())
         .flatMap((repository) -> Mono.just(repository).zipWith(branchService.getAllBranchesByRepositoryName(username, repository.getName())))
         .sequential()
         .map(t2 -> {

@@ -39,8 +39,8 @@ class RepositoryBranchesServiceUnitTests {
     String username = "u1";
 
     List<RepositoryEntity> repositories = List.of(
-        new RepositoryEntity("r1", new RepositoryOwnerEntity(username)),
-        new RepositoryEntity("r2", new RepositoryOwnerEntity(username))
+        new RepositoryEntity("r1", new RepositoryOwnerEntity(username), false),
+        new RepositoryEntity("r2", new RepositoryOwnerEntity(username), false)
     );
 
     List<BranchEntity> repository1Branches = List.of(
@@ -79,7 +79,7 @@ class RepositoryBranchesServiceUnitTests {
     String username = "u1";
 
     List<RepositoryEntity> repositories = List.of(
-        new RepositoryEntity("r1", new RepositoryOwnerEntity(username))
+        new RepositoryEntity("r1", new RepositoryOwnerEntity(username), false)
     );
 
     List<BranchEntity> repository1Branches = List.of();
