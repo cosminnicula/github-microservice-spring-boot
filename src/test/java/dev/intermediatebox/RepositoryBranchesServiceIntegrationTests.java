@@ -29,7 +29,7 @@ class RepositoryBranchesServiceIntegrationTests {
 
   private final String dummyUsername = "abc1816453621721xyz";
 
-  private final Integer repositoriesNumber = 16;
+  private final Integer repositoriesNumber = 17;
 
   @Autowired
   private MockMvc mockMvc;
