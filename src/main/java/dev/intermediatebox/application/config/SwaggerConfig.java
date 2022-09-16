@@ -22,7 +22,7 @@ public class SwaggerConfig {
     return new OpenAPI().info(
         new Info()
             .title("GitHub Microservice")
-            .description("This is a sample Java + Spring Boot microservice that interacts with the GitHub API in order to retrieve Repositories + Branches information.")
+            .description("This is a sample Java + Spring Boot microservice that interacts with the GitHub API and makes use of the Spring WebFlux reactive-stack web framework in order to retrieve and process Repositories + Branches information.")
             .version("1.0.0")
     );
   }
