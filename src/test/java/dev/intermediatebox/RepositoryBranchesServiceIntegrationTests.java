@@ -54,7 +54,7 @@ class RepositoryBranchesServiceIntegrationTests {
       } catch (Exception e) {
       }
     });
-    assertThat(timer.totalTime(TimeUnit.SECONDS)).isBetween(1.0, 10.0);
+    assertThat(timer.totalTime(TimeUnit.SECONDS)).isBetween(0.0, 10.0);
   }
 
   @Test
